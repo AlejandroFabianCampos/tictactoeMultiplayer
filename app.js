@@ -8,6 +8,8 @@ var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
+var socketController = require('./controllers/socketController.js');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -18,9 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-io.on('connection', function(socket){
-  console.log('a user connected', socket);
-});
+socketController(io);
 
 http.listen(3600, function(){
   console.log('listening on *:3600');
