@@ -2,12 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Board from './components/Board';
+import AppRouter from './AppRouter';
 
 function App() {
   return (
     <div className="App">
-      <Board />
+      <AppRouter />
     </div>
   );
 }
