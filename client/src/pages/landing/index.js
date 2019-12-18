@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
+import { Container, Row, Col, Input, Button } from 'reactstrap';
+import './index.css';
 
-export default function index() {
+export default function Index() {
+    const [userName, setUserName] = useState('');
+
     return (
-        <div>
-            This is the landing webpage
-        </div>
+        <Fragment>
+            <Container>
+                <Row className="landing-title-box">
+                    <Col>
+                        <h1>Ta-Te-Ti Multijugador</h1>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center landing-input-box px-4">
+                    <Col md={6}>
+                        <Row>
+                            <Col>
+                                <Input type="text" name="username" value={userName} onChange={ (e) => setUserName(e.target.value) }/>
+                            </Col>
+                        </Row>
+                        <Row className="my-3">
+                            <Col>
+                                <Button color="success">Play</Button>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </Container>
+        </Fragment>
     )
 }

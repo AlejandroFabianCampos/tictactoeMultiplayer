@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { BrowserRouter as Router, Route, browserHistory, Switch } from 'react-router';
+import { BrowserRouter as Router, Route, browserHistory, Switch } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
 
 const Landing = React.lazy(() => import('./pages/landing'));
