@@ -1,11 +1,6 @@
-<<<<<<< Updated upstream
-import React, { Suspense } from 'react'
-import { BrowserRouter as Router, Route, browserHistory, Switch } from 'react-router-dom';
-=======
 import React, { Suspense, Component } from 'react'
 import { BrowserRouter as Router, Route, browserHistory, Switch } from 'react-router-dom';
 
->>>>>>> Stashed changes
 import { CircularProgress } from '@material-ui/core';
 
 import io from 'socket.io-client';
