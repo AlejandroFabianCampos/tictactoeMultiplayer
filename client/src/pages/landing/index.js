@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react'
 import { Container, Row, Col, Input, Button } from 'reactstrap';
 import './index.css';
 
+// add react toast and finish coding this to check the jwt works
+
 export default function Index() {
     const [userName, setUserName] = useState('');
 
@@ -22,7 +24,7 @@ export default function Index() {
                         </Row>
                         <Row className="my-3">
                             <Col>
-                                <Button color="success">Play</Button>
+                                <Button color="success" onClick={ () => }>Play</Button>
                             </Col>
                         </Row>
                     </Col>

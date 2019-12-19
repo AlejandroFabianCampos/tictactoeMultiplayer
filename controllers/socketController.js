@@ -1,3 +1,6 @@
+let jwt = require('jwt-simple');
+
+let appSecret = process.env.APP_SECRET
 
 let counter = 0;
 let tables = [];
@@ -127,8 +130,6 @@ class Table {
         this.moveCount = moveCount+1;
     }
 
-    
-    
 }
 
 
@@ -136,7 +137,13 @@ let model = (ioInstance) => {
 
     ioInstance.on('connection', function(socket){
         console.log('a user connected');
-        socket.emit('autoRes', 'Connected successfully');
+        socket.emit('autoRes', { message:'Connected successfully' });
+
+        socket.on('logUser', function(data){
+            let payload = { username: data.username }
+            let token = jwt.encode(payload, appSecret)
+            socket.emit('logUserRes', token);
+        })
 
         socket.on('getTables', function(){
             socket.emit('getTablesRes', tables);
