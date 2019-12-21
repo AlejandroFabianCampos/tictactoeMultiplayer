@@ -4,7 +4,7 @@ import './index.css';
 
 // add react toast and finish coding this to check the jwt works
 
-export default function Index() {
+export default function Index({ connectNewPlayer }) {
     const [userName, setUserName] = useState('');
 
     return (
@@ -24,7 +24,7 @@ export default function Index() {
                         </Row>
                         <Row className="my-3">
                             <Col>
-                                <Button color="success" onClick={ () => }>Play</Button>
+                                <Button color="success" onClick={ () => connectNewPlayer(userName) }>Play</Button>
                             </Col>
                         </Row>
                     </Col>

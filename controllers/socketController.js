@@ -1,11 +1,10 @@
-let jwt = require('jwt-simple');
+const jwt = require('jwt-simple');
+const uuidv4 = require('uuid/v4');
 
 let appSecret = process.env.APP_SECRET
 
 let counter = 0;
 let tables = [];
-
-
 
 class Table {
     constructor(tableName, creatingUser){
@@ -21,7 +20,7 @@ class Table {
 
     addMove (row, column, playerSide) {
         
-        console.log('Added move');
+        // console.log('Added move');
         const { cellValues, playerPlayingNow, gameEnded } = this;
         let newCellValues = cellValues, playerPlayingNext;
 
@@ -134,18 +133,32 @@ class Table {
 
 
 let model = (ioInstance) => {
+    let loginNamespace = ioInstance.of('/logIn')
+    let authNamespace = ioInstance.of('/auth')
 
-    ioInstance.on('connection', function(socket){
+    loginNamespace.on('connection', function(socket){
         console.log('a user connected');
         socket.emit('autoRes', { message:'Connected successfully' });
 
         socket.on('logUser', function(data){
-            let payload = { username: data.username }
-            let token = jwt.encode(payload, appSecret)
+            let payload = { username: data.username, id: uuidv4() };
+            // console.log(appSecret)
+            let token = jwt.encode(payload, appSecret);
             socket.emit('logUserRes', token);
         })
+    })
+    
+
+    authNamespace.on('connection', function(socket){
+        console.log('a user connected');
+        socket.emit('autoRes', { message:'Connected successfully' });
 
         socket.on('getTables', function(){
+            let token = socket.handshake.headers["x-auth-token"];
+            console.log(token)
+            let decoded = jwt.decode(socket.handshake.headers["x-auth-token"], appSecret);
+            console.log(decoded)
+
             socket.emit('getTablesRes', tables);
         })
 

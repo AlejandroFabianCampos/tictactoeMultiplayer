@@ -4,9 +4,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var express = require('express');
 
+require("dotenv").config();
+
 var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
+
+
 
 var socketController = require('./controllers/socketController.js');
 
