@@ -11,6 +11,7 @@ class Table {
         this.id = 
         this.tableName = tableName
         this.userA = creatingUser
+        this.userB = ''
         this.cellValues = [[0,0,0],[0,0,0],[0,0,0]]
         this.playerPlayingNow = ""
         this.moveCount = 0
@@ -138,6 +139,7 @@ let model = (ioInstance) => {
 
     loginNamespace.on('connection', function(socket){
         console.log('a user connected');
+        // console.log(socket)
         socket.emit('autoRes', { message:'Connected successfully' });
 
         socket.on('logUser', function(data){
@@ -155,7 +157,12 @@ let model = (ioInstance) => {
 
         socket.on('getTables', function(){
             let token = socket.handshake.headers["x-auth-token"];
-            console.log(token)
+            // console.log(socket)
+            // console.log(token, typeof token)
+            if (!token || token == 'null') {
+                return console.log('No token supplied')
+            }
+            // console.log(token)
             let decoded = jwt.decode(socket.handshake.headers["x-auth-token"], appSecret);
             console.log(decoded)
 

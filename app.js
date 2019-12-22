@@ -8,7 +8,17 @@ require("dotenv").config();
 
 var app = express();
 var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+var io = require('socket.io')(http, {
+  handlePreflightRequest: (req, res) => {
+      const headers = {
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, x-auth-token",
+          "Access-Control-Allow-Origin": process.env.FRONTEND_URL,
+          "Access-Control-Allow-Credentials": true
+      };
+      res.writeHead(200, headers);
+      res.end();
+  }
+});
 
 
 
