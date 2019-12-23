@@ -1,5 +1,5 @@
 import React, { Suspense, Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Router, Route, Switch, withRouter } from 'react-router-dom';
 import { createBrowserHistory } from 'history'
 
 import { CircularProgress } from '@material-ui/core';
@@ -15,7 +15,7 @@ const Landing = React.lazy(() => import('./pages/landing'));
 const Lobby = React.lazy(() => import('./pages/lobby'));
 
 
-export default class AppRouter extends Component {
+class AppRouter extends Component {
     constructor(props) {
         super(props)
     
@@ -81,10 +81,11 @@ export default class AppRouter extends Component {
     
     render() {
         return (
-        <BrowserRouter history={history}>
+            // history={this.state.history}
+        <Router history={history}>
             <Suspense fallback={ <CircularProgress /> }>
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path="/" >
                         <Landing connectNewPlayer={this.connectNewPlayer}/>
                     </Route>
                     <Route exact path="/lobby">
@@ -92,7 +93,9 @@ export default class AppRouter extends Component {
                     </Route>
                 </Switch>
             </Suspense>
-        </BrowserRouter>
+        </Router>
         )
     }
 }
+
+export default AppRouter
