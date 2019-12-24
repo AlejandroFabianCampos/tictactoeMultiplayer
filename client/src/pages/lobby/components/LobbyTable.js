@@ -12,7 +12,7 @@ export default function LobbyTable({table}) {
                 {table.userA}
                 </Col>
                 <Col>
-                {/* add vs image */}
+                    <img src="/img/versus.png"/>
                 </Col>
                 <Col>
                 {table.userB}
