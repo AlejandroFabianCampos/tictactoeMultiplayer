@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { Container, Row, Col, Input, Button } from 'reactstrap';
-import './index.css';
+import './index.scss';
 
 // add react toast and finish coding this to check the jwt works
 

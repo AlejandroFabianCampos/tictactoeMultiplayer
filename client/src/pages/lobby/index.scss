@@ -1,0 +1,55 @@
+html {
+    background-color: #1d1a1a;
+}
+
+body {
+    background-color: #1d1a1a;
+}
+
+
+.lobby-outer-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: bisque;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 5vh;
+}
+
+.lobby-container {
+    width: 100%;
+
+    .create-table{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 80%;
+        background-color: #909090;
+        border-radius: 5px;
+        height: 100px;
+        margin: auto;
+        cursor: pointer;
+
+        .card-sides{
+            width: 47.5%;
+
+            h3 {
+                margin-bottom: 0;
+            }
+        }
+
+        .splitter-parent{
+            width: 5%;
+            height: 80%;
+        }
+
+        .splitter{
+            margin: auto;
+            background-color: black;
+            border-radius: 3px;
+            width: 3px;
+            height: 100%;
+        }
+
+    }
+}

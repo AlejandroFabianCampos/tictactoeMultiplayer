@@ -22,7 +22,7 @@ var io = require('socket.io')(http, {
 
 
 
-var socketController = require('./controllers/socketController.js');
+var socketController = require('./application/controllers/socketController.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

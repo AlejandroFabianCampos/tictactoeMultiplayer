@@ -21,7 +21,8 @@ class AppRouter extends Component {
     
         this.state = {
             token: '',
-            tables: []
+            tables: [],
+            username: ''
            
         }
 
@@ -75,13 +76,18 @@ class AppRouter extends Component {
     connectNewPlayer = (username) => {
         // Here we send the user's desired name and after doing some manipulations on the backend we receive a jwt 
         console.log(username)
+        this.setState({ username })
         this.logSocket.emit('logUser', { username })
+    }
 
+    createTable = (tableName) => {
+        console.log(`Creating table with tableName = ${tableName} and username = ${this.state.username}`)
+        this.authSocket.emit('createTable', { tableName, playerName: this.state.username})
+        this.authSocket.emit('getTables')
     }
     
     render() {
         return (
-            // history={this.state.history}
         <Router history={history}>
             <Suspense fallback={ <CircularProgress /> }>
                 <Switch>
@@ -89,7 +95,7 @@ class AppRouter extends Component {
                         <Landing connectNewPlayer={this.connectNewPlayer}/>
                     </Route>
                     <Route exact path="/lobby">
-                        <Lobby tables={this.state.tables}/>
+                        <Lobby tables={this.state.tables} createTable={this.createTable}/>
                     </Route>
                 </Switch>
             </Suspense>
