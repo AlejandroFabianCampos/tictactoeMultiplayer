@@ -4,8 +4,7 @@ import { createBrowserHistory } from 'history'
 
 import { CircularProgress } from '@material-ui/core';
 
-// import Landing from './pages/landing'
-// import Lobby from './pages/lobby'
+import PrivateRoute from './components/PrivateRoute';
 
 import io from 'socket.io-client';
 
@@ -22,7 +21,8 @@ class AppRouter extends Component {
         this.state = {
             token: '',
             tables: [],
-            username: ''
+            username: '',
+            isAuthenticated: false,
            
         }
 
@@ -40,11 +40,10 @@ class AppRouter extends Component {
             this.logSocket = undefined
         }
         this.logSocket = io.connect(process.env.REACT_APP_SOCKET_URL+'/logIn')
-        // , { transportOptions: { polling: { extraHeaders: { 'x-auth-token': this.session.token } } } }
         console.log('Created socket ->', this.logSocket)
 
         this.logSocket.on('logUserRes', (token) => {
-            this.setState({ token })
+            this.setState({ token, isAuthenticated: true })
             this.initiateAuthConnection()
             // console.log(token)
         })
@@ -75,7 +74,7 @@ class AppRouter extends Component {
 
     connectNewPlayer = (username) => {
         // Here we send the user's desired name and after doing some manipulations on the backend we receive a jwt 
-        console.log(username)
+        // console.log(username)
         this.setState({ username })
         this.logSocket.emit('logUser', { username })
     }
@@ -94,9 +93,9 @@ class AppRouter extends Component {
                     <Route exact path="/" >
                         <Landing connectNewPlayer={this.connectNewPlayer}/>
                     </Route>
-                    <Route exact path="/lobby">
-                        <Lobby tables={this.state.tables} createTable={this.createTable}/>
-                    </Route>
+                    <PrivateRoute exact path="/lobby" isAuthenticated={this.state.isAuthenticated}>
+                        <Lobby tables={this.state.tables} createTable={this.createTable} history={history}/>
+                    </PrivateRoute>
                 </Switch>
             </Suspense>
         </Router>

@@ -11,10 +11,11 @@ export default class index extends Component {
             createTableModal: false,
             createTableName: ''
         }
+
+        this.history = props.history
     }
 
 
-    
     render() {
         const { createTableModal, createTableName } = this.state;
         const { createTable } = this.props;
@@ -25,7 +26,7 @@ export default class index extends Component {
                 {
                 this.props.tables.map( (table, index) => {
                     return (
-                        <Row>
+                        <Row className="table" key={index}>
                             <LobbyTable table={table} />
                         </Row>
                         
@@ -44,7 +45,7 @@ export default class index extends Component {
                         </div>
                     </Row>
                 </div>
-                <Modal isOpen={createTableModal} toggle={ () => this.setState({createTableModal: !createTableModal}) } centered="sm">
+                <Modal isOpen={createTableModal} toggle={ () => this.setState({createTableModal: !createTableModal}) } centered={true}>
                     <ModalHeader toggle={() => this.setState({createTableModal: !createTableModal}) }> Crear mesa </ModalHeader>
                     <ModalBody> 
                         <InputGroup>
