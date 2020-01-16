@@ -55,16 +55,20 @@ let controller = (ioInstance) => {
         })
 
         socket.on('createTable', function(data){
-            // Run create Table verification(data) and if correct Update and send res
-            // let msg = '';
-            // if (joinStatus === 'successful') {
-            //     msg = 'successful';
-            // } else {
-            //     msg = 'error';
+            let token = socket.handshake.headers["x-auth-token"];
+            if (!token || token == 'null') {
+                return console.log('No token supplied')
+            }
+            let decoded = jwt.decode(socket.handshake.headers["x-auth-token"], appSecret);
+            // if (!decoded) {
+            //     return socket.emit('error')
             // }
+            // Run create Table verification(data) and if correct Update and send res
             console.log('Creating table');
             let table = new Table(data.tableName, data.playerName)
             tables.push(table)
+
+            console.log(tables)
             
             socket.emit('createTableRes', table)
         })

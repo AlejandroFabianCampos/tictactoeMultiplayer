@@ -6,6 +6,16 @@ body {
     background-color: #1d1a1a;
 }
 
+.lobby-card-header {
+    background-image: linear-gradient(rgb(78, 194, 0), rgb(188, 209, 0));
+    
+    .table-name {
+        margin-top: .5rem
+    }
+
+}
+
+
 
 .lobby-outer-container {
     display: flex;
@@ -23,20 +33,37 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-around;
-        width: 80%;
+        width: 95%;
         background-color: #909090;
         border-radius: 5px;
         // height: 100px;
         margin: auto;
         cursor: pointer;
         margin-bottom: 20px;
+        overflow: hidden;
+
+        .inner-card {
+            display:flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-evenly;
+            margin:0;
+
+            .card-sides {
+                width: 30%;
+            }
+
+            .center-image {
+                width: 35%;
+            }
+        }
     }
 
     .create-table{
         display: flex;
         align-items: center;
         justify-content: space-around;
-        width: 80%;
+        width: 95%;
         background-color: #909090;
         border-radius: 5px;
         height: 100px;

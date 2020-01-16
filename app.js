@@ -20,8 +20,6 @@ var io = require('socket.io')(http, {
   }
 });
 
-
-
 var socketController = require('./application/controllers/socketController.js');
 
 // view engine setup

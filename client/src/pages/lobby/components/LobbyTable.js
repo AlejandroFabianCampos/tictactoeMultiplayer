@@ -4,9 +4,9 @@ import { Row, Col, Container } from 'reactstrap'
 export default function LobbyTable({table}) {
     return (
         <Container fluid>
-            <Row>
+            <Row className="lobby-card-header">
                 <Col>
-                    <h6>{table.tableName}</h6>
+                    <h6 className="table-name">{table.tableName}</h6>
                 </Col>
             </Row>
             <Row className="inner-card">
@@ -17,7 +17,7 @@ export default function LobbyTable({table}) {
                     <img src="/img/versus.png"/>
                 </div>
                 <div className="card-sides">
-                {table.userB === undefined ? '+' : table.userB}
+                    {!table.userB? '+' : table.userB}
                 </div>
             </Row>
         </Container>

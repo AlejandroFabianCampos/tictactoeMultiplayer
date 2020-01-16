@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js --ignore /client "
+    "start": "nodemon app.js --ignore './client' "
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
