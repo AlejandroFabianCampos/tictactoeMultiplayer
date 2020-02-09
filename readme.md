@@ -7,7 +7,7 @@
 
 #### The steps to launch it locally would be: 
 
-* Open a terminal (I assume you have installed Node@12~ with NPM, and git, also have nodemon installed globally (if you don't have it  you can run `npm install nodemon -g`).
+* Open a terminal (I assume you have Node@12~ with NPM, git and nodemon installed globally [To install the last one you can run `npm install nodemon -g`]).
 
 * Clone the project from github, using https this would be done like:  
 `git clone https://github.com/AlejandroFabianCampos/tictactoeMultiplayer.git`
