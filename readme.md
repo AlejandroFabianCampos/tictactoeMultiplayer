@@ -1,8 +1,10 @@
-This is a personal project created with the purpose of practicing the integration of websockets (with socket.io specifically) in a Full Stack environment.
+### Created and mantained by Alejandro Fabian Campos. Contact: camposalejandrofabian@gmail.com .
 
-**NOTE: this is a work in progress and isn't a full implementation yet, as of 2020-02-09 the username asociation and create table systems are working.**
+#### This is a personal project created with the purpose of practicing the integration of websockets (with socket.io specifically) in a Full Stack environment.
 
-The steps to launch it locally would be: 
+#### **NOTE: this is a work in progress and isn't a full implementation yet, as of 2020-02-09 the username asociation and create table systems are working.**
+
+##### The steps to launch it locally would be: 
 
 Open a terminal (I assume you have installed Node@12~ with NPM, and git, also have nodemon installed globally (if you don't have it  you can run `npm install nodemon -g`).
 
@@ -23,5 +25,3 @@ Run `npm install` inside this directory, it will set up the dependencies for the
 Run `npm start`, this will set up a development server for the React spa, after a little while it should automatically open a tab on your default web browser pointing to localhost:3000 .
 
 If everything ran correctly you should be able to navigate the webapp on localhost:3000 and create a user/table.
-
-Created and mantained by Alejandro Fabian Campos. contact: camposalejandrofabian@gmail.com .
