@@ -7,18 +7,18 @@
 
 #### The steps to launch it locally would be: 
 
-* Open a terminal (I assume you have Node@12~ with NPM, git and nodemon installed globally [To install the last one you can run `npm install nodemon -g`]).
+* Open a terminal (I assume you have Node@12~ with NPM, Git and Nodemon installed globally [To install Nodemon you can run `npm install nodemon -g`]).
 
-* Clone the project from github, using https this would be done like:  
+* Clone the project from github, using https:  
 `git clone https://github.com/AlejandroFabianCampos/tictactoeMultiplayer.git`
 
 * Wait until it finishes cloning, then `cd tictactoeMultiplayer`.
 
-* While on the project's root directory, create the server's `.env` file, this is where environment variables are set up, to help you out, the project is loaded with a `.env.sample` file that should have every possible variable defined and therefore you can copy and rename this file to `.env`. 
+* While on the project's root directory, create the server's `.env` file, this is where environment variables are set up. To help you out, the project is loaded with a `.env.sample` file that should have every possible variable defined and therefore you can copy and rename this file to `.env`. 
 
 * Repeat this process inside the client's directory `/client`, copy and rename the `.env.sample` file to `.env`.
 
-* Change the server's .env (located on the root directory of the project) APP_SECRET value for something pseudorandom with a higher number of characters (recommended to use some pseudorandom string generator). _**Note that this step is not necessary, but is important since this variable is used to encrypt/decrypt the JWTs and if you leave the default value, the info of the tokens can be easily read.**_ 
+* Change the server's .env (located on the root directory of the project) APP_SECRET value to something pseudorandom with a higher number of characters (recommended to use some pseudorandom string generator). _**Note that this step is not necessary, but is important since this variable is used to encrypt/decrypt the JWTs and while using the default value, the info on the tokens can be easily read.**_ 
 
 * Also, remember to checkout `.env.sample` files on each update as it is possible that at some point in the future they could require some confidential api key that for obvious reasons wont be asiggned or have a dummy value.
 
@@ -32,4 +32,4 @@
 
 * Run `npm start`, this will set up a development server for the React spa, after a little while it should automatically open a tab on your default web browser pointing to localhost:3000 .
 
-* If everything ran correctly you should be able to navigate the webapp on localhost:3000 and create a user/table.
+If everything ran correctly you should be able to navigate the webapp on localhost:3000 and create a user/table.
