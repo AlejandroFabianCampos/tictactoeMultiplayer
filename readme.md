@@ -14,9 +14,9 @@
 
 * Wait until it finishes cloning, then `cd tictactoeMultiplayer`.
 
-* Set up the server's .env file, this is where environment variables are setup, to help you out, the project is loaded with a .env.sample file that should have every possible variable defined and therefore you can copy and rename this file as .env . Change the APP_SECRET value for something pseudorandom with a higher number of characters (recommended to use some pseudorandom string generator) since this variable is used to encrypt/decrypt the JWTs. Also, remember to checkout .env.sample on each update as it is possible that at some point in the future it could require some confidential api key that for obvious reasons wont be asiggned or have a dummy value.
+* Set up the server's .env file, this is where environment variables are setup, to help you out, the project is loaded with a `.env.sample` file that should have every possible variable defined and therefore you can copy and rename this file to `.env`. Change the APP_SECRET value for something pseudorandom with a higher number of characters (recommended to use some pseudorandom string generator) since this variable is used to encrypt/decrypt the JWTs. Also, remember to checkout `.env.sample` on each update as it is possible that at some point in the future it could require some confidential api key that for obvious reasons wont be asiggned or have a dummy value.
 
-* Repeat this process with the client's .env by copying and renaming .env.sample. Remember to checkout .env.sample on each update as it is possible that at some point in the future it could require some confidential api key that for obvious reasons wont be asiggned.
+* Repeat this process with the client's `.env` by copying and renaming `.env.sample`. Remember to checkout `.env.sample` on each update as it is possible that at some point in the future it could require some confidential api key that for obvious reasons wont be asiggned.
 
 * While being on the root directory of the project run `npm start`. This will start a nodemon instance (that autoreloads in case of the files being changed) of the node server that serves as the connection between users.
 
