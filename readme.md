@@ -14,15 +14,17 @@
 
 * Wait until it finishes cloning, then `cd tictactoeMultiplayer`.
 
-* Set up the server's .env file, this is where environment variables are setup, to help you out, the project is loaded with a `.env.sample` file that should have every possible variable defined and therefore you can copy and rename this file to `.env`. 
+* While on the project's root directory, create the server's `.env` file, this is where environment variables are set up, to help you out, the project is loaded with a `.env.sample` file that should have every possible variable defined and therefore you can copy and rename this file to `.env`. 
 
-* Repeat this process with the client's `.env` by copying and renaming `.env.sample`.
+* Repeat this process inside the client's directory `/client`, copy and rename the `.env.sample` file to `.env`.
 
-* Change the server's .env (located on the root directory of the project) APP_SECRET value for something pseudorandom with a higher number of characters (recommended to use some pseudorandom string generator) since this variable is used to encrypt/decrypt the JWTs. 
+* Change the server's .env (located on the root directory of the project) APP_SECRET value for something pseudorandom with a higher number of characters (recommended to use some pseudorandom string generator). _**Note that this step is not necessary, but is important since this variable is used to encrypt/decrypt the JWTs and if you leave the default value, the info of the tokens can be easily read.**_ 
 
 * Also, remember to checkout `.env.sample` files on each update as it is possible that at some point in the future they could require some confidential api key that for obvious reasons wont be asiggned or have a dummy value.
 
-* While being on the root directory of the project run `npm start`. This will start a nodemon instance (that autoreloads in case of the files being changed) of the node server that serves as the connection between users.
+* Run `npm install` on the root directory, this will automatically download and config the server's dependencies.
+
+* While being on the root directory of the project run `npm start`. This will start a nodemon instance (that autoreloads in case of the project's files being changed) of the node server that serves as the connection between users.
 
 * On a new terminal `cd` into the project root/client.
 
